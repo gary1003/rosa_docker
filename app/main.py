@@ -26,7 +26,7 @@ if __name__ == '__main__':
     response = table.scan()
     items = response['Items']
     last_item = items[-1]
-    text = str(last_item)
+    text = last_item['message_text']
     print("Last item: " + text + "\n")
 
     # send post request to url

@@ -35,7 +35,7 @@ CMD ["python", "main.py"]
 
 ```bash
 docker build -t <image_name> .
-docker run -it --rm -p <image_name>
+docker run -it --rm <image_name>
 ```
 
 ## deploy
