@@ -4,5 +4,4 @@ COPY . /app
 
 RUN pip install -r /app/requirements.txt
 
-# CMD ["bash"]
-CMD ["python", "/app/main.py"]
+# CMD ["sh", "-c", "python /app/main.py && tail -f /dev/null"]

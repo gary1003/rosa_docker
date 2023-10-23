@@ -34,8 +34,8 @@ CMD ["python", "main.py"]
 ## Local test
 
 ```bash
-docker build -t <image_name> .
-docker run -it --rm <image_name>
+docker build -t gary .
+docker run -it gary
 ```
 
 ## deploy
@@ -45,5 +45,10 @@ crontab -e
 ```
 
 ```bash
-* * * * * docker run -it --rm -p <image_name>
+# run and keep it running
+docker run -d --name gary_container gary /bin/bash -c "python /app/main.py && tail -f /dev/null"
+# copy log file and name it with current time
+docker cp gary_container:app.log ./app_$(date +"%Y%m%d%H%M%S").log
+# remove container
+docker rm gary_container -f
 ```
