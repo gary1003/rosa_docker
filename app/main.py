@@ -14,7 +14,7 @@ logging.config.dictConfig({
     'version': 1,
     'disable_existing_loggers': True,
 })
-# logging.basicConfig(level=logging.WARNING, filename='app.log', filemode='w', format='%(name)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.WARNING, filename='app.log', filemode='w', format='%(name)s - %(levelname)s - %(message)s')
 
 dotenv.load_dotenv()
 if os.getenv('DEBUG') == 'True':
@@ -25,7 +25,7 @@ if os.getenv('DEBUG') == 'True':
     console.setLevel(logging.DEBUG)
     logging.getLogger().addHandler(console)
 
-
+logging.debug("Start time: " + datetime.now().strftime("%Y/%m/%d-%H:%M:%S") + "")
 
 logging.debug("Environment variables loaded")
 
